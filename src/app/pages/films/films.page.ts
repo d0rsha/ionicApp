@@ -15,7 +15,7 @@ export class FilmsPage implements OnInit {
   constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit() {
-    this.films = this.api.getFilms();
+    this.films = this.api.getByType('films');
   }
 
   openDetails(film) {

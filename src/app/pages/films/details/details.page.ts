@@ -15,7 +15,7 @@ export class DetailsPage implements OnInit {
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.api.getFilm(id).subscribe(
+    this.api.getById('films', id).subscribe(
       response => {
         this.film = response;
       });
