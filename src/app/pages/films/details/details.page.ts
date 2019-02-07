@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'app-details',
@@ -8,13 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailsPage implements OnInit {
 
-  filmId = null;
+  film: any;
 
-  // ActivatedRoute used to extract :id from URL 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
 
   ngOnInit() {
-    this.filmId = this.activatedRoute.snapshot.paramMap.get('id');
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.api.getFilm(id).subscribe(
+      response => {
+        this.film = response;
+      });
   }
 
 }

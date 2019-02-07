@@ -3,10 +3,20 @@
     <ion-buttons slot="start" defaultHref="/tabs/films">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Details</ion-title>
+    <ion-title>{{ film?.title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-You passed: {{ filmId }}
+  <ion-card *ngIf="film; else spinner">
+    <ion-card-content>
+      {{ film.opening_crawl }}
+    </ion-card-content>
+  </ion-card>
+
+  <ng-template #spinner>
+    <!-- Loading spinner -->
+    <ion-spinner name="dots"></ion-spinner>
+  </ng-template>
+
 </ion-content>
