@@ -6,4 +6,14 @@
 
 <ion-content padding>
 
-</ion-content>
+  <ion-content padding>
+    <ion-list>
+      <ion-item button detail lines="inset" *ngFor="let person of (people | async)?.results" (click)="openDetails(person)">
+        <ion-item>
+          {{ person.name }}
+        </ion-item>
+
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
