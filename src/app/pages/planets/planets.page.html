@@ -1,9 +1,19 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>planets</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
-
-</ion-content>
+    <ion-toolbar>
+      <ion-title>planets</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <ion-content padding>
+      <ion-list>
+        <ion-item button detail lines="inset" *ngFor="let planet of (planets | async)?.results" (click)="openDetails(planet)">
+          <ion-item>
+            {{ planet.name }}
+          </ion-item>
+  
+        </ion-item>
+      </ion-list>
+  
+    </ion-content>
