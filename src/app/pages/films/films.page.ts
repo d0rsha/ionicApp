@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-films',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmsPage implements OnInit {
 
-  constructor() { }
+  constructor(private navController: NavController, private router: Router) { }
 
   ngOnInit() {
   }
 
+  openDetails() {
+    this.router.navigateByUrl(`/pages/tabs/films/42`);
+  }
+
+  goToPlanets() {
+    this.navController.navigateRoot(`/pages/tabs/planets`);
+  }
+
 }
+
