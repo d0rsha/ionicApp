@@ -2,3 +2,22 @@ ion-spinner {
     display: block;
     margin: auto;
 }
+ion-item {
+    display: inline-block;
+}
+ion-item div {
+    font-size: 1rem;
+}
+ion-item ion-card {
+    justify-content: center;
+}
+.movie-card {
+    border: 1px solid var(--ion-color-secondary);
+} 
+.movie-info {
+    background: var(--ion-color-tertiary);
+    display: block;
+}
+.movie-info-header {
+    background: var(--ion-color-tertiary);
+}

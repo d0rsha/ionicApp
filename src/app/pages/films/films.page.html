@@ -8,6 +8,7 @@
   <ion-list *ngIf="films">
     <ion-item button detail lines="inset" *ngFor="let film of (films | async)?.results" (click)="openDetails(film)">
       <ion-item>
+          <ion-icon name="videocam"></ion-icon>
         {{ film.title }}
       </ion-item>
 

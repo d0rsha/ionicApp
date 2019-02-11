@@ -16,4 +16,9 @@ export class ApiService {
   getById(type, id) {
     return this.http.get(`https://swapi.co/api/${type}/${id}`);
   }
+
+  getByUrl(url) {
+    return this.http.get(url);
+  }
+
 }

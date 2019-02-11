@@ -46,9 +46,9 @@ export class DetailsPage implements OnInit {
 
   shareFilm() {
     const email = {
-      to: 'saimon@devdactic.com',
-      subject: 'I love this one: ' + this.film.title,
-      body: 'Can you remember the opening?<br><br>\"' + this.film.opening_crawl + '\"',
+      to: 'avrethem@gmail.com',
+      subject: 'Woao! This is a good one: ' + this.film.title,
+      body: 'Check this out<br><br>\"' + this.film.opening_crawl + '\"',
       isHtml: true
     };
 
