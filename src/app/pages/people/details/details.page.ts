@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { FavoriteService } from './../../../services/favorite.service';
 
 @Component({
   selector: 'app-details',
@@ -11,8 +12,13 @@ import { HttpClient } from '@angular/common/http';
 export class DetailsPage implements OnInit {
 
   person: any;
+  isFavorite = false;
+  personId = null;
 
-  constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private http: HttpClient) { }
+  constructor(private activatedRoute: ActivatedRoute,
+    private api: ApiService,
+    private http: HttpClient,
+    private favoriteService: FavoriteService) { }
 
 
 
@@ -20,8 +26,6 @@ export class DetailsPage implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     this.api.getById('people', id).subscribe(
       response => {
-        console.dir(response);
-
         // fetch homeworld
         this.http.get(response['homeworld']).subscribe(
           planetResponse => {
@@ -39,7 +43,10 @@ export class DetailsPage implements OnInit {
         }
 
         this.person = response;
-        console.dir(this.person);
+      });
+
+      this.favoriteService.isFavorite('people', this.personId).then(isFav => {
+        this.isFavorite = isFav;
       });
   }
 
@@ -47,8 +54,6 @@ export class DetailsPage implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     this.api.getById('people', id).subscribe(
       response => {
-        console.dir(response);
-
         // fetch homeworld
         this.http.get(response['homeworld']).subscribe(
           planetResponse => {
@@ -66,9 +71,21 @@ export class DetailsPage implements OnInit {
         }
 
         this.person = response;
-        console.dir(this.person);
       });
   }
+
+  favoritePerson() {
+    this.favoriteService.favoritePerson(this.personId).then(() => {
+      this.isFavorite = true;
+    });
+  }
+
+  unfavoritePerson() {
+    this.favoriteService.unfavoritePerson(this.personId).then(() => {
+      this.isFavorite = false;
+    });
+  }
+
 
 
 }

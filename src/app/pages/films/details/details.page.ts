@@ -27,7 +27,7 @@ export class DetailsPage implements OnInit {
       this.film = res;
     });
 
-    this.favoriteService.isFavorite(this.filmId).then(isFav => {
+    this.favoriteService.isFavorite('films', this.filmId).then(isFav => {
       this.isFavorite = isFav;
     });
   }

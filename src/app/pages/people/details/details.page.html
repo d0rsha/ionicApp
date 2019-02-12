@@ -4,6 +4,14 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>{{ person?.name }}</ion-title>
+    <ion-buttons slot="end">
+        <ion-button (click)="unfavoritePerson()" *ngIf="isFavorite">
+            <ion-icon name="star" slot="icon-only" color="secondary"></ion-icon>
+          </ion-button>
+          <ion-button (click)="favoritePerson()" *ngIf="!isFavorite">
+            <ion-icon name="star-outline" slot="icon-only" color="secondary"></ion-icon>
+          </ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

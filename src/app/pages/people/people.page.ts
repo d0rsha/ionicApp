@@ -10,8 +10,10 @@ import { Observable } from 'rxjs';
 })
 export class PeoplePage implements OnInit {
   people: Observable<any>;
+  isFavorite = false;
 
-  constructor(private router: Router, private api: ApiService) { }
+  constructor(private router: Router,
+      private api: ApiService) { }
 
   ngOnInit() {
     this.people = this.api.getByType('people');
