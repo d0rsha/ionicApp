@@ -37,7 +37,7 @@ export class CapturedModalPage implements OnInit {
     this.pushNewImage(capturedImage);
 
     this.memoryForm = this.fb.group({
-      titele: ['', Validators.required],
+      title: ['', Validators.required],
       date: new Date().toISOString().split('T')[0],
       text: '',
       color: this.colors[0]
