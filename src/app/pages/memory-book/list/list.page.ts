@@ -22,12 +22,13 @@ export class ListPage implements OnInit {
       header: 'Select Image Source',
       buttons: [{
         text: 'Load from library',
-        handler: () => { this.captureImage(this.camera.PictureSourceType.PHOTOLIBRARY);
+        handler: () => {
+          this.captureImage(this.camera.PictureSourceType.PHOTOLIBRARY);
         }
       },
       {
         text: 'Use Camera',
-        handler: () => { this.captureImage(this.camera.PictureSourceType.CAMERA);}
+        handler: () => { this.captureImage(this.camera.PictureSourceType.CAMERA); }
       },
       {
         text: 'Cancel',

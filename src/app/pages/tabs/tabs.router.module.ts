@@ -5,7 +5,7 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
@@ -46,7 +46,7 @@ const routes: Routes = [
             loadChildren: '../planets/details/details.module#DetailsPageModule'
           }
         ]
-      },
+      }/* ,
       {
         path: 'list',
         children: [
@@ -55,13 +55,13 @@ const routes: Routes = [
             loadChildren: '../memory-book/list/list.module#ListPageModule'
           }
         ]
-      }
+      } */
     ]
   },
   {
     path: '',
-    redirectTo: 'tabs/films',
-    pathMatch: 'full'
+    redirectTo: 'films',
+    //pathMatch: 'prefix'
   }
 ];
 
