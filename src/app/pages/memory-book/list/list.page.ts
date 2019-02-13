@@ -9,7 +9,6 @@ import { ActionSheetController } from '@ionic/angular';
   styleUrls: ['./list.page.scss'],
 })
 export class ListPage implements OnInit {
-  image = null;
   constructor(private camera: Camera,
     private webview: WebView,
     private actionSheetController: ActionSheetController) { }
@@ -48,8 +47,7 @@ export class ListPage implements OnInit {
     };
 
     this.camera.getPicture(options).then(imagePath => {
-      this.image = this.webview.convertFileSrc(imagePath);
-      console.log('<list.page.ts>path: ', this.image);
+      
     });
   }
 }

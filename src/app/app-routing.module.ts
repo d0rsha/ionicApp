@@ -3,8 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
+  { path: '*', redirectTo: 'list', pathMatch: 'full' },
   { path: 'pages', loadChildren: './pages/tabs/tabs.module#TabsPageModule' },
-  { path: 'list', loadChildren: './pages/list/list.module#ListPageModule' },
+  { path: 'list', loadChildren: './pages/memory-book/list/list.module#ListPageModule' },
+  { path: 'captured-modal', loadChildren: './pages/memory-book/captured-modal/captured-modal.module#CapturedModalPageModule' },
 ];
 
 @NgModule({
