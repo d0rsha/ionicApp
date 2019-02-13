@@ -11,7 +11,9 @@ import { TabsRouterModule } from './tabs.router.module';
 const routes: Routes = [
   {
     path: '',
-    component: TabsPage
+    component: TabsPage,
+    redirectTo: 'films',
+    pathMatch: 'full'
   }
 ];
 
@@ -25,4 +27,4 @@ const routes: Routes = [
   ],
   declarations: [TabsPage]
 })
-export class TabsPageModule {}
+export class TabsPageModule { }

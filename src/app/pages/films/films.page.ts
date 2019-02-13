@@ -13,7 +13,7 @@ export class FilmsPage implements OnInit {
 
   films: Observable<any>;
 
-  constructor(private router: Router, 
+  constructor(private router: Router,
     private api: ApiService,
     private actionSheetController: ActionSheetController) { }
 
@@ -24,21 +24,17 @@ export class FilmsPage implements OnInit {
   openDetails(film) {
     const split = film.url.split('/');
     const filmId = split[split.length - 2];
-    this.router.navigateByUrl(`/pages/tabs/films/${filmId}`);
+    this.router.navigateByUrl(`menu/tabs/films/${filmId}`);
   }
 
-
-  goToPlanets() {
-    this.router.navigateByUrl(`/pages/tabs/planets`);
-  }
 
   async openMenu() {
     const actionSheet = await this.actionSheetController.create({
       header: '',
       buttons: [{
-        text: 'Tabs',
+        text: 'Go Memory book',
         handler: () => {
-          this.router.navigateByUrl('/pages/tabs/films/');
+          this.router.navigateByUrl('menu/list');
         }
       },
       {

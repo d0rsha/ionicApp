@@ -12,7 +12,7 @@ export class MenuPage implements OnInit {
   pages = [
     {
       title: 'Starwars API',
-      url: '/menu/tabs'
+      url: '/menu/tabs/films'
     },
     {
       title: 'Memory Book',

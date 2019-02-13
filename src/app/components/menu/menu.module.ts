@@ -24,7 +24,13 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/menu/list',
+    redirectTo: '/menu/tabs/films',
+    pathMatch: 'prefix'
+  },
+  {
+    path: 'menu',
+    redirectTo: '/menu/tabs/films',
+    pathMatch: 'prefix'
   }
 ];
 

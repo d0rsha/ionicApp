@@ -18,10 +18,10 @@ export class PlanetsPage implements OnInit {
   }
 
   openDetails(planet) {
-    console.log(planet.url);
     const split = planet.url.split('/');
     const pid = split[split.length - 2];
-    this.router.navigateByUrl(`/pages/tabs/planets/${pid}`);
+    // Pay careful attention to ` `-string notation and not ' '-string; Escapes {} chars
+    this.router.navigateByUrl(`menu/tabs/planets/${pid}`);
   }
 
 }

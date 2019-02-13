@@ -46,22 +46,13 @@ const routes: Routes = [
             loadChildren: '../planets/details/details.module#DetailsPageModule'
           }
         ]
-      }/* ,
-      {
-        path: 'list',
-        children: [
-          {
-            path: '',
-            loadChildren: '../memory-book/list/list.module#ListPageModule'
-          }
-        ]
-      } */
+      }
     ]
   },
   {
     path: '',
-    redirectTo: 'films',
-    //pathMatch: 'prefix'
+    redirectTo: 'menu/tabs/films',
+    pathMatch: 'full'
   }
 ];
 

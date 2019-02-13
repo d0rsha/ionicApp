@@ -22,7 +22,7 @@ export class PeoplePage implements OnInit {
   openDetails(person) {
     const split = person.url.split('/');
     const pid = split[split.length - 2];
-    this.router.navigateByUrl(`/pages/tabs/people/${pid}`);
+    this.router.navigateByUrl(`menu/tabs/people/${pid}`);
   }
 
 }
