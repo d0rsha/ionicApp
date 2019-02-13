@@ -46,6 +46,15 @@ const routes: Routes = [
             loadChildren: '../planets/details/details.module#DetailsPageModule'
           }
         ]
+      },
+      {
+        path: 'list',
+        children: [
+          {
+            path: '',
+            loadChildren: '../memory-book/list/list.module#ListPageModule'
+          }
+        ]
       }
     ]
   },

@@ -1,3 +1,15 @@
 ion-slide {
     max-height: 200px;
 }
+
+.color-row {
+    width: 100%;
+}
+
+.color-col {
+    min-height: 50px;
+}
+
+.selected {
+    border: 5px solid #e4fd00;
+}

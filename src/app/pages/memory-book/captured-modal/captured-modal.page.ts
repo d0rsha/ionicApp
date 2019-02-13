@@ -3,6 +3,7 @@ import { NavParams, ModalController, ActionSheetController } from '@ionic/angula
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ImagePreviewModalPage } from '../image-preview-modal/image-preview-modal.page';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-captured-modal',
@@ -13,19 +14,34 @@ export class CapturedModalPage implements OnInit {
   images = [];
   slideOption = {
     slidesPerView: 1.3,
-    spaceBetween: 5,
+    spaceBetween: 15,
     autoHeight: true
   };
+  memoryForm: FormGroup;
+  colors = [
+    '#aa00ff',
+    '#91ccbb',
+    'aabb66',
+    '#aa8585'
+  ];
 
   constructor(private navParams: NavParams,
     private webView: WebView,
     private modalController: ModalController,
     private camera: Camera,
-    private actionSheetController: ActionSheetController) { }
+    private actionSheetController: ActionSheetController,
+    private fb: FormBuilder) { }
 
   ngOnInit() {
     const capturedImage = this.navParams.get('image');
     this.pushNewImage(capturedImage);
+
+    this.memoryForm = this.fb.group({
+      titele: ['', Validators.required],
+      date: new Date().toISOString().split('T')[0],
+      text: '',
+      color: this.colors[0]
+    });
   }
 
   async selectSource() {
@@ -86,5 +102,13 @@ export class CapturedModalPage implements OnInit {
 
   removeImage(id) {
     this.images.splice(id, 1);
+  }
+
+  setColor(color) {
+    this.memoryForm.patchValue({ color: color });
+  }
+
+  SaveMemory() {
+
   }
 }

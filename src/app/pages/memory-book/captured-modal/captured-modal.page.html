@@ -12,12 +12,13 @@
 
 <ion-content padding>
   <ion-slides [options]="slidesOption">
-    <ion-slide *ngFor="let images of images; let i = index;">
+    <ion-slide *ngFor="let img of images; let i = index;">
       <ion-fab vertical="top" horizontal="end" slot="fixed">
         <ion-fab-button color="light" (click)="removeImage(i)">
           <ion-icon name="trash" color="danger"></ion-icon>
         </ion-fab-button>
       </ion-fab>
+
 
       <img [src]="img.path" (click)="openPreview(i)">
     </ion-slide>
@@ -27,4 +28,34 @@
     <ion-icon name="camera" slot="start"></ion-icon>
     Add image
   </ion-button>
+
+  <form [formGroup]="memoryForm" (ngSubmit)="saveMemory()">
+    <ion-item>
+      <ion-label position="stacked">Title</ion-label>
+      <ion-input formControlName="title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Date</ion-label>
+      <ion-input formControlName="date" displayFormat="YYYY-MM-DD"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Book color</ion-label>
+      <ion-row class="color-row">
+        <ion-col size="3" class="color-col" *ngFor="let col of colors" [style.background]="col" 
+        [class.celected]="col == memoryForm.get('color').value" tappable (click)="setColor(col)">
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea formControlName="text" rows="6" placeholder="What's going on this date?"></ion-textarea>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!memoryForm.valid || images.length == 0">
+      <ion-icon name="checkmark" slot="start"></ion-icon>
+      Save to memory
+    </ion-button>
+  </form>
 </ion-content>
