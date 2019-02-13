@@ -12,6 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 
+import { Camera } from '@ionic-native/camera/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -25,7 +29,10 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    EmailComposer
+    EmailComposer,
+    Camera,
+    File,
+    WebView
   ],
   bootstrap: [AppComponent]
 })
