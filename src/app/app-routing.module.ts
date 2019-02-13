@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'pages', loadChildren: './pages/tabs/tabs.module#TabsPageModule' },
   { path: 'list', loadChildren: './pages/memory-book/list/list.module#ListPageModule' },
   { path: 'captured-modal', loadChildren: './pages/memory-book/captured-modal/captured-modal.module#CapturedModalPageModule' },
+  { path: 'image-preview-modal', loadChildren: './pages/memory-book/image-preview-modal/image-preview-modal.module#ImagePreviewModalPageModule' },
 ];
 
 @NgModule({

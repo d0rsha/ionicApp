@@ -15,15 +15,19 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { CapturedModalPageModule } from './pages/memory-book/captured-modal/captured-modal.module';
+import { ImagePreviewModalPageModule } from './pages/memory-book/image-preview-modal/image-preview-modal.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule,
-    IonicModule.forRoot(),
+  IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    CapturedModalPageModule,
+    ImagePreviewModalPageModule
   ],
   providers: [
     StatusBar,

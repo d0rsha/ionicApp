@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, ModalController } from '@ionic/angular';
+import { CapturedModalPage } from '../captured-modal/captured-modal.page';
 
 @Component({
   selector: 'app-list',
@@ -10,7 +11,7 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class ListPage implements OnInit {
   constructor(private camera: Camera,
-    private webview: WebView,
+    private modalController: ModalController,
     private actionSheetController: ActionSheetController) { }
 
   ngOnInit() {
@@ -47,7 +48,18 @@ export class ListPage implements OnInit {
     };
 
     this.camera.getPicture(options).then(imagePath => {
-      
+      this.modalController.create({
+        component: CapturedModalPage,
+        componentProps: {
+          image: imagePath
+        }
+      }).then(modal => {
+        modal.present();
+
+        modal.onWillDismiss().then(data => {
+
+        });
+      });
     });
   }
 }
