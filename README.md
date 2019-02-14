@@ -7,12 +7,17 @@ ionic serve
 ## Add '-c' for making it visible on local network 
 ##     '-l' for lab environment in browser
 ```
-To run on local android device
+To run on local android device (you also need android-sdk)
 ```
 adb tcpip 5555                  ## Skip if starting from virtual device 
 adb connect device_ip_address   ## Check virtuals devices w/ 'android list avd'
-ionic cordova run android
+ionic cordova run android       ## Add '-l' for live reload (It's veeery niice)
 ```
+Further to debug with chrome tools open chrome://inspect/#devices  
+Make sure your device is connected, read more at https://ionic.zone/debug/remote-debug-your-app#android  
+Make sure your device is running the same chrome version as your environment https://www.google.com/linuxrepositories/  
+Find `Ionic App <device_ip>:<port> inspect` and hit `inspect`  
+
 
 
 # How was it implemented?
@@ -39,16 +44,20 @@ npm install @ionic-native/email-composer@beta
 ```
 ### Login Screen
 ```
-ionic g page public/login
-ionic g page public/register
-ionic g page members/dashboard
-ionic g service services/authentication
-ionic g service services/authGuard
-ng generate module members/member-routing --flat
+ionic g page pages/films
+ionic g page pages/films/details
+ionic g page pages/tabs
+ionic g module pages/tabs-router --flat
+ionic g service services/omdbapi
 ``` 
 
 ### Deprecated stuff v3 -> v4
 <ion-nav>
 
-https://ionicframework.com/docs/developer-resources/guides/first-app-v4/intro
+--- Clicky links ---  
+https://ionicframework.com/docs/developer-resources/guides/first-app-v4/intro  
+https://angularfirebase.com/  
+https://angular.io/guide/router  
+https://ionicons.com/  
+
 

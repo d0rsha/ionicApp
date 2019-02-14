@@ -110,11 +110,11 @@ export class CapturedModalPage implements OnInit {
     this.memoryForm.patchValue({ color: color });
   }
 
-  SaveMemory() {
+  saveMemory() {
     let promises = [];
 
     for (let img of this.images) {
-      let copyTask = this.memoryService.saveImage(img.file);
+      const copyTask = this.memoryService.saveImage(img.file);
       promises.push(copyTask);
     }
 
