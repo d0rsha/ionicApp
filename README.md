@@ -9,8 +9,8 @@ ionic serve
 ```
 To run on local android device (you also need android-sdk)
 ```
-adb tcpip 5555                  ## Skip if starting from virtual device 
-adb connect device_ip_address   ## Check virtuals devices w/ 'android list avd'
+adb tcpip 5555                  
+adb connect device_ip_address   
 ionic cordova run android       ## Add '-l' for live reload (It's veeery niice)
 ```
 Further to debug with chrome tools open chrome://inspect/#devices  
@@ -18,7 +18,8 @@ Make sure your device is connected, read more at https://ionic.zone/debug/remote
 Make sure your device is running the same chrome version as your environment https://www.google.com/linuxrepositories/  
 Find `Ionic App <device_ip>:<port> inspect` and hit `inspect`  
 
-
+To emulate `ionic cordova emulate [<platform>] [options]`  (https://ionicframework.com/docs/cli/commands/cordova-emulate)
+Check virtuals devices w/ `android list avd`
 
 # How was it implemented?
 
