@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { ActionSheetController, ModalController } from '@ionic/angular';
+import { ActionSheetController, ModalController, Platform } from '@ionic/angular';
 import { CapturedModalPage } from '../captured-modal/captured-modal.page';
+import { MemoryService } from '../../../services/memory.service';
 
 @Component({
   selector: 'app-list',
@@ -10,11 +11,19 @@ import { CapturedModalPage } from '../captured-modal/captured-modal.page';
   styleUrls: ['./list.page.scss'],
 })
 export class ListPage implements OnInit {
+
+  memories = [];
+
   constructor(private camera: Camera,
     private modalController: ModalController,
-    private actionSheetController: ActionSheetController) { }
+    private actionSheetController: ActionSheetController,
+    private pltf: Platform,
+    private memoryService: MemoryService) { }
 
   ngOnInit() {
+    this.pltf.ready().then(() => {
+      this.loadMemories();
+    });
   }
 
   async selectSource() {
@@ -59,11 +68,18 @@ export class ListPage implements OnInit {
 
         modal.onWillDismiss().then(data => {
           if (data.data && data.data['reload']) {
-            // Reload data
+            // Reset memories && Reload data
+            this.loadMemories();
           }
 
         });
       });
+    });
+  }
+
+  loadMemories() {
+    this.memoryService.getMemories().then(result => {
+      this.memories = result;
     });
   }
 }

@@ -92,7 +92,7 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryUsageDescription">
         <string>need photo library access to get pictures from there</string>
     </edit-config>
-    <allow-navigation href="http://192.168.1.127:8101" sessionid="0f862294" />
+    <allow-navigation href="http://192.168.1.127:8101" sessionid="bd71af04" />
     <engine name="ios" spec="4.5.5" />
     <engine name="android" spec="7.1.4" />
     <engine name="windows" spec="6.0.1" />

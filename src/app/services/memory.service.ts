@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { File } from '@ionic-native/file/ngx';
 import { Storage } from '@ionic/storage';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { Platform } from '@ionic/angular';
 
 const MEMORY_KEY = 'saved_memories';
 
@@ -43,6 +44,22 @@ export class MemoryService {
         memories.push(memory);
         return this.storage.set(MEMORY_KEY, memories);
       }
+    });
+  }
+
+  getMemories() {
+    return this.storage.get(MEMORY_KEY).then(result => {
+      if (!result) {
+        return [];
+      }
+
+      return result.map(item => {
+        item.imas = item.images.map(img => {
+          this.webview.convertFileSrc(this.file.dataDirectory + img);
+          return item;
+        });
+      });
+
     });
   }
 }
