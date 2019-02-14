@@ -4,6 +4,7 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ImagePreviewModalPage } from '../image-preview-modal/image-preview-modal.page';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MemoryService } from '../../../services/memory.service';
 
 @Component({
   selector: 'app-captured-modal',
@@ -30,7 +31,8 @@ export class CapturedModalPage implements OnInit {
     private modalController: ModalController,
     private camera: Camera,
     private actionSheetController: ActionSheetController,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private memoryService: MemoryService) { }
 
   ngOnInit() {
     const capturedImage = this.navParams.get('image');
@@ -109,6 +111,23 @@ export class CapturedModalPage implements OnInit {
   }
 
   SaveMemory() {
+    let promises = [];
 
+    for (let img of this.images) {
+      let copyTask = this.memoryService.saveImage(img.file);
+      promises.push(copyTask);
+    }
+
+    // Wait for the whole array of promises to finish !
+    Promise.all(promises).then(res => {
+      console.log('<captured-modal.pages.ts> result: ', res);
+      let toSave = this.memoryForm.value;
+      toSave.images = res;
+      toSave.id = Date.now();
+
+      this.memoryService.addMemory(toSave).then(result => {
+        this.modalController.dismiss({ reload: true });
+      });
+    });
   }
 }
