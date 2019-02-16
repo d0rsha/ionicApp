@@ -9,7 +9,7 @@ import { MenuPage } from './menu.page';
 
 const routes: Routes = [
   {
-  path: 'menu',
+    path: 'menu',
     component: MenuPage,
     children: [
       {
@@ -19,17 +19,22 @@ const routes: Routes = [
       {
         path: 'list',
         loadChildren: '../../pages/memory-book/list/list.module#ListPageModule'
-      }
+      },
+      {
+        path: 'list/:id',
+        loadChildren: '../../pages/memory-book/list/memory-details/memory-details.module#MemoryDetailsPageModule'
+      },
+
     ]
   },
   {
     path: '',
-    redirectTo: '/menu/tabs/films',
+    redirectTo: '/menu/tabs/list',
     pathMatch: 'prefix'
   },
   {
     path: 'menu',
-    redirectTo: '/menu/tabs/films',
+    redirectTo: '/menu/tabs/list',
     pathMatch: 'prefix'
   }
 ];
@@ -43,4 +48,4 @@ const routes: Routes = [
   ],
   declarations: [MenuPage]
 })
-export class MenuPageModule {}
+export class MenuPageModule { }

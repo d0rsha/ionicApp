@@ -4,6 +4,7 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { ActionSheetController, ModalController, Platform } from '@ionic/angular';
 import { CapturedModalPage } from '../captured-modal/captured-modal.page';
 import { MemoryService } from '../../../services/memory.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -18,13 +19,16 @@ export class ListPage implements OnInit {
     private modalController: ModalController,
     private actionSheetController: ActionSheetController,
     private pltf: Platform,
-    private memoryService: MemoryService) { }
+    private memoryService: MemoryService,
+    private router: Router) { }
+
 
   ngOnInit() {
     this.pltf.ready().then(() => {
       this.loadMemories();
     });
   }
+
 
   async selectSource() {
     const actionSheet = await this.actionSheetController.create({
@@ -48,6 +52,7 @@ export class ListPage implements OnInit {
     // No need to wait when sheet is ready
     actionSheet.present();
   }
+
 
   captureImage(sourceType: number) {
     const options: CameraOptions = {
@@ -77,9 +82,15 @@ export class ListPage implements OnInit {
     });
   }
 
+
   loadMemories() {
     this.memoryService.getMemories().then(result => {
       this.memories = result;
     });
   }
+
+  openMemories() {
+
+  }
+
 }
