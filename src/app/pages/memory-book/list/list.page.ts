@@ -23,7 +23,8 @@ export class ListPage implements OnInit {
     private router: Router,
     private events: Events) {
 
-    this.events.subscribe('reload.memories', () => {
+    this.events.subscribe('reload-memories', () => {
+      console.log('<list.page.ts> new event: reload.memories');
       this.loadMemories();
     });
   }

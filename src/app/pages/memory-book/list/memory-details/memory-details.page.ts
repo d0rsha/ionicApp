@@ -44,7 +44,7 @@ export class MemoryDetailsPage implements OnInit {
   deleteMemory() {
     this.memoryService.deleteMemory(this.id).then(() => {
       this.events.publish('reload-memories');
-     this.router.navigateByUrl('/');
+     this.router.navigateByUrl('/menu/list');
     });
    }
 
