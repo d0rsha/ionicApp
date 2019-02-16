@@ -26,14 +26,13 @@ export class MemoryDetailsPage implements OnInit {
     private events: Events) { }
 
   ngOnInit() {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id)');
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.memoryService.getMemoryById(this.id).then(memory => {
       this.memory = memory;
     });
   }
 
   openPreview(img) {
-    console.log(img);
     this.modalController.create({
       component: ImagePreviewModalPage,
       componentProps: {
@@ -45,7 +44,7 @@ export class MemoryDetailsPage implements OnInit {
   deleteMemory() {
     this.memoryService.deleteMemory(this.id).then(() => {
       this.events.publish('reload-memories');
-     this.router.navigateByUrl('/menu/list');
+     this.router.navigateByUrl('/');
     });
    }
 
