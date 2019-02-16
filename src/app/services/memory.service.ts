@@ -4,7 +4,7 @@ import { Storage } from '@ionic/storage';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { Platform } from '@ionic/angular';
 
-const MEMORY_KEY = 'saved_memories';
+const MEMORY_KEY = 'memories';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class MemoryService {
     if (currentName.indexOf('?') > -1) {
       currentName = currentName.substr(0, currentName.lastIndexOf('?'));
     }
-
+    console.log('memory..service.ts: saveImage() ', currentName);
     return this.copyFileToLocalDir(folderPath, currentName, `${new Date().getTime()}.jpg`);
   }
 
@@ -36,7 +36,7 @@ export class MemoryService {
   }
 
   addMemory(memory) {
-    console.log(memory);
+    console.log('<memory.service>: addMemory(): Added memory: ', memory);
     return this.storage.get(MEMORY_KEY).then(memories => {
       if (!memories) {
         return this.storage.set(MEMORY_KEY, [memory]);
@@ -54,10 +54,13 @@ export class MemoryService {
       }
 
       return result.map(item => {
-        item.imas = item.images.map(img => {
-          this.webview.convertFileSrc(this.file.dataDirectory + img);
+        item.images = item.images.map(img => this.webview.convertFileSrc(this.file.dataDirectory + img));
+          console.log('<memory.service>: getMemories() returning ', item);
           return item;
-        });
+      });
+      return result.map(item => {
+        item.images = item.images.map(img => this.webview.convertFileSrc(this.file.dataDirectory + img));
+        return item;
       });
 
     });
