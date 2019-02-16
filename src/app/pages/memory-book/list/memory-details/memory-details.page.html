@@ -1,9 +1,44 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>memoryDetails</ion-title>
+    <ion-title>{{ memory?.title }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu/list"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  <div *ngIf="memory">
+  
+    <ion-slides [options]="slidesOption">
+      <ion-slide *ngFor="let img of memory.images; let i = index;">
+  
+  
+        <img [src]="img" (click)="openPreview(img)">
+      </ion-slide>
+    </ion-slides>
 
+
+    <ion-item>
+      <ion-label position="stacked">Title</ion-label>
+      <ion-input [(ngModel)]="meory.title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Date</ion-label>
+      <ion-input [(ngModel)]="memory.date" displayFormat="YYYY-MM-DD"></ion-input>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-textarea [(ngModel)]="text" rows="6"></ion-textarea>
+    </ion-item>
+
+    <ion-button expand="full" color="danger" (click)="deleteMemory()">
+      <ion-icon name="trash" slot="start" color="secondary"></ion-icon>
+      Delete
+    </ion-button>
+
+
+
+  </div>
 </ion-content>

@@ -65,4 +65,13 @@ export class MemoryService {
 
     });
   }
+
+  getMemoryById(id) {
+    return this.storage.get(MEMORY_KEY).then(result => {
+      return result.filter(item => item.id == id).map(item => {
+        item.images = item.images.map(img => this.webview.convertFileSrc(this.file.dataDirectory + img));
+        return item;
+      })[0];
+    });
+  }
 }
