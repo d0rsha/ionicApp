@@ -13,7 +13,7 @@ adb tcpip 5555                  ## Skip if starting from virtual device
 adb connect device_ip_address   ## Check virtuals devices w/ 'android list avd'
 ionic cordova run android       ## Add '-l' for live reload (It's veeery niice)
 ```
-Further to debug with chrome tools open chrome://inspect/#devices  
+Further to debug with chrome tools open [chrome://inspect/#devices](chrome://inspect/#devices)  
 Make sure your device is connected, read more at https://ionic.zone/debug/remote-debug-your-app#android  
 Make sure your device is running the same chrome version as your environment https://www.google.com/linuxrepositories/  
 Find `Ionic App <device_ip>:<port> inspect` and hit `inspect`  
