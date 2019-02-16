@@ -74,4 +74,30 @@ export class MemoryService {
       })[0];
     });
   }
+
+  deleteMemory(id) {
+    return this.storage.get(MEMORY_KEY).then(result => {
+      let toKeep = [];
+      let toDelete = null;
+
+      for (let mem of result) {
+        if (mem.id != id) {
+          toKeep.push(mem);
+        } else {
+          toDelete = mem;
+        }
+      }
+
+      let promises = [];
+
+      for (const img of toDelete.images) { // [123.jpg, 123.jpg]
+        const task = this.file.removeFile(this.file.dataDirectory, img);
+        promises.push(task);
+      }
+
+      promises.push(this.storage.set(MEMORY_KEY, toKeep));
+
+      return Promise.all(promises);
+    });
+  }
 }

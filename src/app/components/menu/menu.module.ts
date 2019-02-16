@@ -29,12 +29,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/menu/tabs/list',
+    redirectTo: '/menu/list',
     pathMatch: 'prefix'
   },
   {
     path: 'menu',
-    redirectTo: '/menu/tabs/list',
+    redirectTo: '/menu/list',
     pathMatch: 'prefix'
   }
 ];

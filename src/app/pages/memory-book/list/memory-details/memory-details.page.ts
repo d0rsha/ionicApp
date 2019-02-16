@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MemoryService } from '../../../../services/memory.service';
-import { ModalController } from '@ionic/angular';
+import { ModalController, Events } from '@ionic/angular';
 import { ImagePreviewModalPage } from '../../image-preview-modal/image-preview-modal.page';
 
 @Component({
@@ -18,10 +18,12 @@ export class MemoryDetailsPage implements OnInit {
     spaceBetween: 15,
     autoHeight: true
   };
-  
+
   constructor(private activatedRoute: ActivatedRoute,
-    private memoryService: MemoryService, 
-    private modalController: ModalController) { }
+    private memoryService: MemoryService,
+    private modalController: ModalController,
+    private router: Router,
+    private events: Events) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get('id)');
@@ -31,6 +33,7 @@ export class MemoryDetailsPage implements OnInit {
   }
 
   openPreview(img) {
+    console.log(img);
     this.modalController.create({
       component: ImagePreviewModalPage,
       componentProps: {
@@ -38,9 +41,12 @@ export class MemoryDetailsPage implements OnInit {
       }
     }).then(modal => modal.present());
   }
-
+ 
   deleteMemory() {
-
-  }
+    this.memoryService.deleteMemory(this.id).then(() => {
+      this.events.publish('reload-memories');
+     this.router.navigateByUrl('/menu/list');
+    });
+   }
 
 }

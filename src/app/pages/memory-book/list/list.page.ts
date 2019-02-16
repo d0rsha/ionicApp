@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { ActionSheetController, ModalController, Platform } from '@ionic/angular';
+import { ActionSheetController, ModalController, Platform, Events } from '@ionic/angular';
 import { CapturedModalPage } from '../captured-modal/captured-modal.page';
 import { MemoryService } from '../../../services/memory.service';
 import { Router } from '@angular/router';
@@ -20,7 +20,13 @@ export class ListPage implements OnInit {
     private actionSheetController: ActionSheetController,
     private pltf: Platform,
     private memoryService: MemoryService,
-    private router: Router) { }
+    private router: Router,
+    private events: Events) {
+
+    this.events.subscribe('reload.memories', () => {
+      this.loadMemories();
+    });
+  }
 
 
   ngOnInit() {
