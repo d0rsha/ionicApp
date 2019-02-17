@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       {
         path: 'tabs',
-        loadChildren: '../../pages/tabs/tabs.module#TabsPageModule'
+        loadChildren: '../tabs/tabs.module#TabsPageModule'
       },
       {
         path: 'list',
