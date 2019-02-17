@@ -18,6 +18,13 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { CapturedModalPageModule } from './pages/memory-book/captured-modal/captured-modal.module';
 import { ImagePreviewModalPageModule } from './pages/memory-book/image-preview-modal/image-preview-modal.module';
 
+// Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -27,7 +34,8 @@ import { ImagePreviewModalPageModule } from './pages/memory-book/image-preview-m
     HttpClientModule,
     IonicStorageModule.forRoot(),
     CapturedModalPageModule,
-    ImagePreviewModalPageModule
+    ImagePreviewModalPageModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
     StatusBar,

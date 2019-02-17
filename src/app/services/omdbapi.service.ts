@@ -19,7 +19,6 @@ export enum SearchType {
 export class OmdbapiService {
   url = 'http://www.omdbapi.com/';
   apiKey = confidential.apiKey; // <-- Enter your own key here!
-
   /**
    * Constructor of the Service with Dependency Injection
    * @param http The standard Angular HttpClient to make requests

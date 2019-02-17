@@ -1,0 +1,1 @@
+`Ctrl+\`` Open Integrated Terminal 
