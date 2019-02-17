@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../../services/api.service';
+import { ApiService } from '../../../../services/api.service';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
-import { FavoriteService } from './../../../services/favorite.service';
+import { FavoriteService } from '.././../../../services/favorite.service';
 
 @Component({
   selector: 'app-details',
