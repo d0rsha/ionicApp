@@ -9,12 +9,11 @@
 
 <ion-content padding>
   <div *ngIf="memory">
+    <ion-slides [options]="slidesOption" [style.background]="memory.color">
+      <ion-slide *ngFor="let img of memory.images; let i = index;" >
   
-    <ion-slides [options]="slidesOption">
-      <ion-slide *ngFor="let img of memory.images; let i = index;">
   
-  
-        <img [src]="img" (click)="openPreview(img)">
+        <img [src]="img" (click)="openPreview(img)" class="images">
       </ion-slide>
     </ion-slides>
 
@@ -37,7 +36,6 @@
       <ion-icon name="trash" slot="start" color="secondary"></ion-icon>
       Delete
     </ion-button>
-
 
 
   </div>

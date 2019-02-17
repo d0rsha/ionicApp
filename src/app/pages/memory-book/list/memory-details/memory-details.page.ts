@@ -18,7 +18,13 @@ export class MemoryDetailsPage implements OnInit {
     spaceBetween: 15,
     autoHeight: true
   };
-
+  colors = [
+    '#aa00ff',
+    '#91ccbb',
+    'aabb66',
+    '#aa8585'
+  ];
+  
   constructor(private activatedRoute: ActivatedRoute,
     private memoryService: MemoryService,
     private modalController: ModalController,
