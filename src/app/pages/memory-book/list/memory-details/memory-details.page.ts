@@ -24,7 +24,7 @@ export class MemoryDetailsPage implements OnInit {
     'aabb66',
     '#aa8585'
   ];
-  
+
   constructor(private activatedRoute: ActivatedRoute,
     private memoryService: MemoryService,
     private modalController: ModalController,
@@ -46,12 +46,12 @@ export class MemoryDetailsPage implements OnInit {
       }
     }).then(modal => modal.present());
   }
- 
+
   deleteMemory() {
     this.memoryService.deleteMemory(this.id).then(() => {
       this.events.publish('reload-memories');
-     this.router.navigateByUrl('/menu/list');
+      this.router.navigateByUrl('/menu/list');
     });
-   }
+  }
 
 }
