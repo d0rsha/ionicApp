@@ -54,6 +54,8 @@ ionic g service services/omdbapi
 
 ### Deprecated stuff v3 -> v4
 <ion-nav>
+<ion-tab> In beta.18 ion-tab was removed https://github.com/ionic-team/ionic/blob/master/CHANGELOG.md  
+
 
 --- Clicky links ---  
 https://ionicframework.com/docs/developer-resources/guides/first-app-v4/intro  
