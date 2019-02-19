@@ -35,7 +35,9 @@ import { environment } from '../environments/environment';
     IonicStorageModule.forRoot(),
     CapturedModalPageModule,
     ImagePreviewModalPageModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [
     StatusBar,
