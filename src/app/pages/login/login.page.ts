@@ -21,10 +21,10 @@ export class LoginPage implements OnInit {
     private alertCtrl: AlertController) { }
 
   ngOnInit() {
+      // Checkout ReactiveForms course for more info on Validators
     this.loginForm = this.formBuilder.group({
       email: ['avrethem@gmail.com', Validators.compose([Validators.email, Validators.required])],
       password: ['123123', Validators.compose([Validators.minLength(6), Validators.required])]
-      // Checkout ReactiveForms course for more info on Validators 
     });
   }
 
@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
 
   async loginUser() {
     const loading = await this.loadingCtrl.create({
-      message: 'Signing up...'
+      message: 'Login...'
     });
     loading.present();
 
