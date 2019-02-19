@@ -4,7 +4,8 @@
 import { environment_ } from './environment_';
 
 export const environment = environment_;
-/*export const environment_ = {
+/* Created a shadow file so I wont release my confidential keys
+export const environment_ = {
   production: false,
   firebase: {
   // Put you firebase config here
