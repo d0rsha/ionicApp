@@ -4,6 +4,7 @@ import { NavigationPage } from './navigation/navigation.page';
 import { TabsPage } from '../tabs/tabs.page';
 import { ListPage } from '../../pages/memory-book/list/list.page';
 import { LogoutPage } from '../../pages/logout/logout.page';
+import { MenuPage } from '../menu/menu.page';
 
 const routes: Routes = [
   {
@@ -18,7 +19,7 @@ const routes: Routes = [
       {
         path: 'mem',
         outlet: 'mem',
-        component: ListPage
+        component: MenuPage
       },
       {
         path: 'logout',

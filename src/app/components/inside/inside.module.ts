@@ -6,17 +6,18 @@ import { NavigationPageModule } from './navigation/navigation.module';
 import { TabsPageModule } from '../tabs/tabs.module';
 import { ListPageModule } from '../../pages/memory-book/list/list.module';
 import { LogoutPageModule } from '../../pages/logout/logout.module';
+import { MenuPageModule } from '../menu/menu.module';
 
 
 @NgModule({
   declarations: [],
   imports: [
-  CommonModule,
+CommonModule,
     InsideRoutingModule,
     NavigationPageModule,
     TabsPageModule,
-    ListPageModule,
-    LogoutPageModule
+    LogoutPageModule,
+    MenuPageModule
   ]
 })
 export class InsideModule { }

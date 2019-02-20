@@ -10,3 +10,4 @@ Other perks:
 npm install @angular/fire firebase --save   
 - ## --save, saves it to your json file 
 ionic g service services/firebase
+

@@ -34,7 +34,7 @@ export class FilmsPage implements OnInit {
       buttons: [{
         text: 'Go Memory book',
         handler: () => {
-          this.router.navigateByUrl('menu/list');
+          this.router.navigateByUrl('/inside/menu/list');
         }
       },
       {

@@ -97,7 +97,7 @@ export class ListPage implements OnInit {
   }
 
   openMemory(id) {
-    this.router.navigateByUrl(`/menu/list/${id}`);
+    this.router.navigateByUrl(`/inside/menu/list/${id}`);
   }
 
 }

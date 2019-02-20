@@ -16,7 +16,7 @@ export class MenuPage implements OnInit {
     },
     {
       title: 'Memory Book',
-      url: '/menu/list'
+      url: '/inside/menu/list'
     }
   ];
 

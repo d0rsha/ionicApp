@@ -6,45 +6,24 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { MenuPage } from './menu.page';
+import { MenuRouterModule } from './menu.router.module';
 
 const routes: Routes = [
   {
-    path: 'menu',
-    component: MenuPage,
-    children: [
-      {
-        path: 'tabs',
-        loadChildren: '../tabs/tabs.module#TabsPageModule'
-      },
-      {
-        path: 'list',
-        loadChildren: '../../pages/memory-book/list/list.module#ListPageModule'
-      },
-      {
-        path: 'list/:id',
-        loadChildren: '../../pages/memory-book/list/memory-details/memory-details.module#MemoryDetailsPageModule'
-      },
-
-    ]
-  },
-  {
-    path: '',
-    redirectTo: '/menu/list',
-    pathMatch: 'prefix'
-  },
-  {
-    path: 'menu',
-    redirectTo: '/menu/list',
-    pathMatch: 'prefix'
+      path: '',
+      component: MenuPage,
+      redirectTo: 'inside/menu/list',
+      pathMatch: 'full'
   }
 ];
 
 @NgModule({
   imports: [
-    CommonModule,
+  CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MenuRouterModule
   ],
   declarations: [MenuPage]
 })
