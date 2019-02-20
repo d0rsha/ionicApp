@@ -4,13 +4,10 @@ import { AuthGuard } from './components/guards/auth.guard';
 
 
 const routes: Routes = [
-  // { path: '', loadChildren: './components/menu/menu.module#MenuPageModule' },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', loadChildren: './components/menu/menu.module#MenuPageModule', canActivate: [AuthGuard] },
+  /*{ path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  {
-    path: 'inside', loadChildren: './components/inside/inside.module#InsideModule',
-    canActivate: [AuthGuard]
-  },
+  { path: 'inside', loadChildren: './components/inside/inside.module#InsideModule' },*/
 ];
 
 @NgModule({

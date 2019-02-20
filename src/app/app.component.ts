@@ -29,7 +29,7 @@ export class AppComponent {
       this.fbAuth.auth.onAuthStateChanged(user => {
         if (user) {
           console.log('<app.component> Authenticated');
-          this.router.navigateByUrl('/inside/tabs/(home:home)');
+          this.router.navigate(['menu']);
         } else {
           this.router.navigate(['login']);
         }
