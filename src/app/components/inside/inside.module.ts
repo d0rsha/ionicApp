@@ -5,16 +5,18 @@ import { InsideRoutingModule } from './inside-routing.module';
 import { NavigationPageModule } from './navigation/navigation.module';
 import { TabsPageModule } from '../tabs/tabs.module';
 import { ListPageModule } from '../../pages/memory-book/list/list.module';
+import { LogoutPageModule } from '../../pages/logout/logout.module';
 
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
+  CommonModule,
     InsideRoutingModule,
     NavigationPageModule,
     TabsPageModule,
-    ListPageModule
+    ListPageModule,
+    LogoutPageModule
   ]
 })
 export class InsideModule { }
