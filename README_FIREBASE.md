@@ -5,5 +5,8 @@ Other perks:
  * Upgrade price plan as you grow
  *   
  * Firebase is very likely to continue be maintained in the future. 
+
 # Getting started with Firebase 
-npm install @angular/fire firebase --save
+npm install @angular/fire firebase --save   
+- ## --save, saves it to your json file 
+ionic g service services/firebase
