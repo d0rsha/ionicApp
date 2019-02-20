@@ -6,7 +6,7 @@ import { ListPage } from '../../pages/memory-book/list/list.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'nav',
     component: NavigationPage,
     children: [
       {

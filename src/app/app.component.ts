@@ -26,14 +26,6 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      this.fbAuth.auth.onAuthStateChanged(user => {
-        if (user) {
-          console.log('<app.component> Authenticated');
-          this.router.navigateByUrl('/inside/tabs/(home:home)');
-        } else {
-          this.router.navigate(['login']);
-        }
-      });
     });
   }
 }
