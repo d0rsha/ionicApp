@@ -1,25 +1,14 @@
 # Ionic mobile apps
-qweqwe
-To run download the repo and run
-```
-ionic serve
 
-## Add '-c' for making it visible on local network 
-##     '-l' for lab environment in browser
-```
-To run on local android device (you also need android-sdk)
-```
-adb tcpip 5555                  
-adb connect device_ip_address   
-ionic cordova run android       ## Add '-l' for live reload (It's veeery niice)
-```
-Further to debug with chrome tools open [chrome://inspect/#devices](chrome://inspect/#devices)  
-Make sure your device is connected, read more at https://ionic.zone/debug/remote-debug-your-app#android  
-Make sure your device is running the same chrome version as your environment https://www.google.com/linuxrepositories/  
-Find `Ionic App <device_ip>:<port> inspect` and hit `inspect`  
+Get the latest verison of Node.js!!
 
-To emulate `ionic cordova emulate [<platform>] [options]`  (https://ionicframework.com/docs/cli/commands/cordova-emulate)
-Check virtuals devices w/ `android list avd`
+Download the repo and run
+```
+(sudo) npm install -g ionic cordova 
+npm install                     ## Inside the repo 
+ionic serve                     ## Add '-c' for making it visible on local network 
+                                ##     '-l' for lab environment in browser
+```
 
 # How was it implemented?
 
